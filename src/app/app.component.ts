@@ -4,6 +4,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import * as firebase from 'firebase';
+const config = {
+  apiKey: "AIzaSyBq3S627TMjcGDRVVlktO-UGIhxacUgI7U",
+  authDomain: "whosapp-84834.firebaseapp.com",
+  databaseURL: "https://whosapp-84834.firebaseio.com",
+  projectId: "whosapp-84834",
+  storageBucket: "whosapp-84834.appspot.com",
+  messagingSenderId: "958371709510"
+};
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,6 +26,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    firebase.initializeApp(config);
   }
 }
 

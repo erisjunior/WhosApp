@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="wpp2">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content class="login-content" padding>
+  <div class="login-box">
+    
+    <form>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            <ion-item>
+              <ion-input type="text" placeholder="Nome" name="nome" [(ngModel)]="usuario.usuarioNome" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="usuario.usuarioEmail" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Status" name="status" [(ngModel)]="usuario.usuarioStatus" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="URL da Foto" name="foto" [(ngModel)]="usuario.usuarioFoto" required></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="senha" [(ngModel)]="usuario.usuarioSenha" required></ion-input>
+            </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full (click)="addUsuario(usuario)">Cadastrar</button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </div>
+</ion-content>
