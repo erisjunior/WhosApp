@@ -1,34 +1,29 @@
-<ion-content class="login-content" padding>
-  <div class="login-box">
+<ion-content padding>
+  <h2 style="color:white;margin-top: 100px" text-center>Who's App</h2>
 
-    <h2 style="color:white"text-center>Who's App</h2>
-
-    <form>
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-            
-            <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" required></ion-input>
-              <!-- <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="usuario.email" required></ion-input> -->
-            </ion-item>
-            
-            <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" required></ion-input>
-              <!-- <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="usuario.senha" required></ion-input> -->
-            </ion-item>
-            
-          </ion-list>
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" (click)="Login(usuario)">Login</button>
-          <button ion-button class="register-btn" (click)="newAccount()" block clear>Create New Account</button>
-        </ion-col>
-      </ion-row>
-      
-    </form>
-  </div>
+  <form>
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          
+          <ion-item>
+            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="usuario.email" required></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="usuario.senha" required></ion-input>
+          </ion-item>
+          
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <button ion-button color='wpp2' full type="submit" (click)="Login(usuario)">Login</button>
+        <button ion-button color='light' (click)="newAccount()" block clear>Create New Account</button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
 </ion-content>

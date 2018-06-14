@@ -10,6 +10,7 @@ import { MainPage } from '../pages/main/main';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { SearchPipe } from '../pipes/search/search';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { ConversaPage } from '../pages/conversa/conversa';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
     MainPage,
     CadastroPage,
     SearchPipe,
-    PerfilPage
+    PerfilPage,
+    ConversaPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
     HomePage,
     MainPage,
     CadastroPage,
-    PerfilPage
+    PerfilPage,
+    ConversaPage
   ],
   providers: [
     StatusBar,

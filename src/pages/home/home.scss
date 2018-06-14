@@ -1,46 +1,10 @@
 page-home {
 
- 
-    .login-content {
-      background: #075e55;
-   
-      .login-box {
-        margin-top: 30px;
-      }
-   
-        ion-row {
-         align-items: center;
-         text-align: center;
-        }
-   
-       ion-item {
-           border-radius: 30px !important;
-           padding-left: 20px !important;
-           margin-bottom: 10px;
-           border: 1px solid #ffffff;
-           border-bottom: 0px !important;
-       }
-   
-       .signup-col {
-         margin: 0px 16px 0px 16px;
-         padding-bottom: 20px;
-       }
-   
-       .item-inner {
-         border-bottom-color: #ffffff !important;
-         box-shadow: none !important;
-       }
-   
-       .submit-btn {
-         background:#34af23;
-         border-radius: 30px !important;
-         border: 1px solid #ffffff;
-       }
-   
-       .register-btn {
-         color: #ffffff;
-         font-size: 0.8em;
-       }
-    }
+  ion-content {
+    background: url(../assets/imgs/chat-back.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
    
   }

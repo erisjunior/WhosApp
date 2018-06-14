@@ -2,7 +2,7 @@
   <ion-navbar color="wpp2" no-border-bottom>
 
     <ion-grid>
-      <ion-row id="procura" class="sumiu">
+      <ion-row color="light" id="procura" class="sumiu">
         <ion-col col-11>
             <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
         </ion-col>
@@ -29,9 +29,6 @@
 
   <ion-toolbar color="wpp2" no-border-top>
     <ion-segment color="light" [(ngModel)]="wpp">
-      <ion-segment-button value="conversas">
-        Conversas
-      </ion-segment-button>
       <ion-segment-button value="usuarios">
         Usuários
       </ion-segment-button>
@@ -41,17 +38,17 @@
 
 <ion-content>
   <div [ngSwitch]="wpp">
-    <ion-list *ngSwitchCase="'conversas'">
-    </ion-list>
     
     <ion-list *ngSwitchCase="'usuarios'">
-      <ion-item *ngFor="let usuario of usuarios | search : terms">
-        <ion-avatar item-start>
-          <img src="{{usuario.usuarioFoto}}">
-        </ion-avatar>
-        <h2><b>{{usuario.usuarioNome}}</b></h2>
-        <p>{{usuario.usuarioStatus}}</p>
-      </ion-item>
+      <div *ngFor="let usuario of usuarios | search : terms" (click)="joinChat(usuario.key,usuario.usuarioNome)">
+        <ion-item *ngIf="id !== usuario.key">
+          <ion-avatar item-start>
+            <img src="{{usuario.usuarioFoto}}">
+          </ion-avatar>
+          <h2><b>{{usuario.usuarioNome}}</b></h2>
+          <p>{{usuario.usuarioStatus}}</p>
+        </ion-item>
+      </div>
     </ion-list>
   </div>
 </ion-content>
