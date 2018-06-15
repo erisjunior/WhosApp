@@ -11,6 +11,8 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { SearchPipe } from '../pipes/search/search';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ConversaPage } from '../pages/conversa/conversa';
+import { CadastroGPage } from '../pages/cadastro-g/cadastro-g';
+import { ConversaGPage } from '../pages/conversa-g/conversa-g';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ConversaPage } from '../pages/conversa/conversa';
     CadastroPage,
     SearchPipe,
     PerfilPage,
-    ConversaPage
+    ConversaPage,
+    CadastroGPage,
+    ConversaGPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { ConversaPage } from '../pages/conversa/conversa';
     MainPage,
     CadastroPage,
     PerfilPage,
-    ConversaPage
+    ConversaPage,
+    CadastroGPage,
+    ConversaGPage
   ],
   providers: [
     StatusBar,

@@ -16,7 +16,7 @@
         <img src="{{usuario.foto}}" style="border-radius:100%">
         <ion-item>
           <ion-label floating>Url da Foto</ion-label>
-          <ion-input type="text" [(ngModel)]="usuario.foto"></ion-input>
+          <ion-input type="text" [(ngModel)]="usuario.foto" disabled></ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-2></ion-col>
@@ -27,20 +27,20 @@
 
           <ion-item>
             <ion-label floating>Nome</ion-label>
-            <ion-input type="text" [(ngModel)]="usuario.nome"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.nome" disabled></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input type="text" [(ngModel)]="usuario.email"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.email" disabled></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label floating>Status</ion-label>
-            <ion-input type="text" [(ngModel)]="usuario.status"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.status" disabled></ion-input>
           </ion-item>
           <ion-item>
-            <button ion-button block color="wpp2">Editar</button>
+            <button ion-button block color="wpp2" disabled>Editar</button>
           </ion-item>
         
         </ion-list>

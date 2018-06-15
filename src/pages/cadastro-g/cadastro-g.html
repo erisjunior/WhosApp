@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar color="wpp2">
+      <ion-title>Criar Grupo</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8 text-center>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeC9yr_UpIJ4lvzeuODhYvUxsGybx2OZPlmJVeqKYDsyifiJtvZQ" style="border-radius:100%">
+          <ion-item>
+            <ion-label floating>Url da Foto</ion-label>
+            <ion-input type="text" name="foto" [(ngModel)]="grupo.grupoFoto"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-list>
+  
+            <ion-item>
+              <ion-label floating>Nome</ion-label>
+              <ion-input type="text" name="nome" [(ngModel)]="grupo.grupoNome"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Privacidade</ion-label>
+              <ion-select name="privacidade" [(ngModel)]="grupo.grupoPrivacidade">
+                <ion-option value="publico">Público</ion-option>
+                <ion-option value="privado">Privado</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="grupo.grupoPrivacidade === 'privado'">
+              <ion-label>Membros</ion-label>
+              <ion-select [(ngModel)]="grupo.grupoMembros" multiple="true" cancelText="Nah" okText="Okay!">
+                <div *ngFor="let usuario of usuarios">
+                  <ion-option *ngIf="usuario.key !== id" value="{{usuario.key}}">{{usuario.usuarioNome}}</ion-option>
+                </div>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <button ion-button block color="wpp2" (click)="addGrupo(grupo)">Cadastrar</button>
+            </ion-item>
+          
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>

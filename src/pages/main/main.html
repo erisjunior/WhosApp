@@ -32,6 +32,9 @@
       <ion-segment-button value="usuarios">
         Usuários
       </ion-segment-button>
+      <ion-segment-button value="grupos">
+        Grupos
+      </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
@@ -50,5 +53,20 @@
         </ion-item>
       </div>
     </ion-list>
+    <ion-list *ngSwitchCase="'grupos'">
+        <ion-item (click)="addG()">
+          <ion-avatar item-start>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeC9yr_UpIJ4lvzeuODhYvUxsGybx2OZPlmJVeqKYDsyifiJtvZQ">
+          </ion-avatar>
+          <h2><b>NEW GROUP</b></h2>
+        </ion-item>
+
+          <ion-item *ngFor="let grupo of grupos | search : terms" (click)="joinGrupo(grupo.key, grupo.grupoNome)">
+            <ion-avatar item-start>
+              <img src="{{grupo.grupoFoto}}">
+            </ion-avatar>
+            <h2><b>{{grupo.grupoNome}}</b></h2>
+          </ion-item>
+      </ion-list>
   </div>
 </ion-content>

@@ -2,9 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 import * as firebase from 'Firebase';
-
 /**
- * Generated class for the ConversaPage page.
+ * Generated class for the ConversaGPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,10 +11,10 @@ import * as firebase from 'Firebase';
 
 @IonicPage()
 @Component({
-  selector: 'page-conversa',
-  templateUrl: 'conversa.html',
+  selector: 'page-conversa-g',
+  templateUrl: 'conversa-g.html',
 })
-export class ConversaPage {
+export class ConversaGPage {
   @ViewChild(Content) content: Content;
 
   usuario = {
@@ -23,50 +22,43 @@ export class ConversaPage {
     nome:this.navParams.get("nome")
   }
 
-  data = { message:'' };
-  cha = [];
+  data = { type:'', message:'' };
   chats = [];
-  userKey:string;
-  nomecarinha:string;
+  roomkey:string;
+  nome:string;
+  n:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.userKey = this.navParams.get("key") as string;
-    this.nomecarinha = this.navParams.get("nomecarinha") as string;
+    this.roomkey = this.navParams.get("key") as string;
+    this.nome = this.navParams.get("nome") as string;
+    this.n = this.navParams.get("n") as string;
+    this.data.type = 'message';
 
-    // let joinData = firebase.database().ref('chatrooms/'+this.roomkey+'/chats').push();
+    // let joinData = firebase.database().ref('grupo/'+this.roomkey+'/chats').push();
     // joinData.set({
     //   type:'join',
-    //   user:this.nickname,
-    //   message:this.nickname+' has joined this room.',
+    //   user:this.nome,
+    //   message:this.nome+' has joined this room.',
     //   sendDate:Date()
     // });
     // this.data.message = '';
 
-    firebase.database().ref('chats/').on('value', resp => {
-      this.cha = [];
-      this.cha = snapshotToArray(resp);
+    firebase.database().ref('grupo/'+this.roomkey+'/chats').on('value', resp => {
+      this.chats = [];
+      this.chats = snapshotToArray(resp);
       setTimeout(() => {
         this.content.scrollToBottom(300);
       }, 300);
-      let u = 0;
-      for (let i = 0; i < this.cha.length; i++) {
-        if((this.cha[i]['userId'] === this.usuario.id && this.cha[i]['toId'] === this.userKey) || (this.cha[i]['userId'] === this.userKey && this.cha[i]['toId'] === this.usuario.id)){
-          this.chats[u] = this.cha[i];
-          u++;
-        }
-      }
     });
-
   }
-
   sendMessage() {
     if(this.data.message == ''){ }else{
-      let newData = firebase.database().ref('chats/').push();
+      let newData = firebase.database().ref('grupo/'+this.roomkey+'/chats').push();
       newData.set({
-        message:this.data.message,
-        user:this.usuario.nome,
+        type:this.data.type,
+        user:this.nome,
         userId:this.usuario.id,
-        toId:this.userKey,
+        message:this.data.message,
         sendDate:Date()
       });
       this.data.message = '';
@@ -74,7 +66,6 @@ export class ConversaPage {
   }
 
 }
-
 export const snapshotToArray = snapshot => {
   let returnArr = [];
 
